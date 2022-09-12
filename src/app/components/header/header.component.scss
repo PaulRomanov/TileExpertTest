@@ -14,6 +14,11 @@
     .wrapper-logo {
       display: flex;
       flex-direction: row;
+      @media screen and (max-width: 990px) {
+        .wrapper-logo {
+          flex-direction: row-reverse;
+        }
+      }
       .logo {
         width: 100%;
         height: 100%;
@@ -21,11 +26,89 @@
         &-img {
           width: 200px;
         }
+        @media screen and (max-width: 1124px) {
+          .logo {
+            padding: 20px 0 0 5px;
+          }
+        
+          .logo-img {
+            width: 150px;
+          }
+        }
       }
+     
       .wrapper-nav {
-        padding: 10px;
         display: flex;
       }
     }
   }
-}
+  .wrapper-search {
+    display: flex;
+    padding: 10px;
+    max-width: 450px;
+    width: 100%;
+    justify-content: flex-start;
+    .button-search {
+      position: relative;
+    }
+    .btn-search {
+      padding: 10px;
+    }
+  }
+  .wrapper-message {
+    padding: 20px;
+    @media screen and (max-width: 1365px) {
+      .wrapper-message {
+        padding: 20px 5px;
+      }
+    }
+    .message-block {
+      margin-right: 50px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 120px;
+      width: 100%;
+      .message {
+        position: relative;
+        .newMas {
+          position: absolute;
+          height: 20px;
+          width: 20px;
+          top: -10px;
+          background: red;
+          text-align: center;
+        }
+      }
+    }
+    @media screen and (max-width: 560px) {
+      .header {
+        flex-direction: column;
+        height: 120px;
+      }
+      .button-add {
+        display: none;
+      }
+      .wrapper-search {
+        justify-content: flex-end;
+      }
+      .wrapper-message {
+        padding: 10px;
+      }
+      .message-block {
+        max-width: 560px;
+        justify-content: space-around;
+      }
+    }
+  }
+  }
+
+  
+ 
+
+  
+
+
+
