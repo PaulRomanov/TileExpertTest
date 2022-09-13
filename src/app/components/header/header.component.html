@@ -9,9 +9,9 @@
         <app-nav></app-nav>
       </div>
     </div>
-
+    <app-search #search></app-search>
     <div class="wrapper-search">
-      <div class="btn-search button-search" title="Поиск" ><mat-icon>search</mat-icon></div>
+      <div class="btn-search button-search" title="Поиск" (click)="search.show()"><mat-icon>search</mat-icon></div>
       <div class="btn-search button-add"><mat-icon>add_circle</mat-icon></div>
     </div>
   </div>

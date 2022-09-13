@@ -1,0 +1,47 @@
+    <form [formGroup]="form"
+      (ngSubmit)="submit()"
+      class="search-input"
+      >
+      <div class="block" [@fadeInOut]="skipClick? 'start':'end'">
+        <label class="label" for="search"><mat-icon>search</mat-icon></label>
+        <input formControlName="searchParams" (click)="openFilter()" id="search" class="search-input__input" type="text">
+        <div class="delete-search" title="Очистить" (click)="form.controls['searchParams'].setValue('')"><mat-icon>close</mat-icon></div>
+        <ng-container *ngIf="filterOn">
+          <div class="block-filter">
+            <div class="block-filter__line">
+              <div class="params">
+                <input id="my" type="checkbox" formControlName="my">
+                <label for="my">мои</label>
+              </div>
+              <div class="params">
+                <input formControlName="author" id="author" type="text" placeholder="Автор">
+              </div>
+            </div>
+            <div class="block-filter__line">
+              <div class="params">
+                <label id="optionLabel" for="option">Сортировать по:</label>
+                <select id="option" formControlName="optionLabel">
+                  <option value="date" selected>дате</option>
+                  <option value="relevance">релевантности</option>
+                </select>
+              </div>
+            </div>
+            <div class="block-filter__line checkbox-block">
+              <div class="params">
+                <input formControlName="participant" id="participant" type="checkbox">
+                <label for="participant">участник</label>
+              </div>
+              <div class="params">
+                <input formControlName="inHeader" id="inHeader" type="checkbox">
+                <label for="inHeader">в заголовке</label>
+              </div>
+              <div class="params">
+                <input formControlName="strict" id="strict" type="checkbox">
+                <label for="strict">строгий поиск</label>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <button [disabled]="form.invalid" type="submit" class="search-input__btn">{{'найти' | uppercase}}</button>
+    </form>
